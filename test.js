@@ -22,7 +22,7 @@ async function testEmail() {
     let info = await transporter.sendMail({
       from: `"Test" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
-      subject: "Test email",
+      subject: "flygames09@gmail.com",
       text: "This is a test email.",
     });
     console.log("Message sent:", info.messageId);

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>BTM Visa/Immigration Request</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+      color: #1a1a1a;
+      padding: 20px;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 86, 179, 0.15);
+      max-width: 650px;
+      margin: 0 auto;
+      border-top: 6px solid #0056b3; /* BTM blue */
+    }
+    h2 {
+      color: #0056b3; /* BTM blue */
+      margin-bottom: 25px;
+      font-weight: 700;
+      font-size: 24px;
+    }
+    .info-row {
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+    .info-row strong {
+      display: inline-block;
+      width: 180px;
+      color: #003d80;
+      font-weight: 600;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #666666;
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>BTM Visa/Immigration Submission</h2>
+
+    <div class="info-row"><strong>Full Name:</strong> <%= Full_name %></div>
+    <div class="info-row"><strong>Email:</strong> <%= Email %></div>
+    <div class="info-row"><strong>Phone Number:</strong> <%= Phone_Number %></div>
+    <div class="info-row"><strong>Visa Type:</strong> <%= Visa_Type %></div>
+    <div class="info-row"><strong>Nationality:</strong> <%= Nationality %></div>
+    <div class="info-row"><strong>Passport Type:</strong> <%= Passport_Type %></div>
+    <div class="info-row"><strong>Issued By:</strong> <%= Issued_By %></div>
+    <div class="info-row"><strong>Expiration Date:</strong> <%= expiration_date %></div>
+    <div class="info-row"><strong>Originating Country:</strong> <%= Originating_Country %></div>
+    <div class="info-row"><strong>Country of Arrival:</strong> <%= Country_of_Arrival %></div>
+    <div class="info-row"><strong>Referral Source:</strong> <%= contact %></div>
+
+    <div class="footer">
+      &copy; <%= new Date().getFullYear() %> BTM. All rights reserved.<br />
+      This message was generated from the BTM Visa/Immigration web form.
+    </div>
+  </div>
+</body>
+</html>
