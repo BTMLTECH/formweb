@@ -1,15 +1,20 @@
-
-import ejs from "ejs"
-import path from "path"
-import nodemailer from "nodemailer"
+import ejs from "ejs";
+import path from "path";
+import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import { fileURLToPath } from "url";
+
+// ES module workaround for __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 dotenv.config();
 
 async function sendMailToUser({ email, subject, template, data }) {
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: parseInt(process.env.EMAIL_PORT, 10) || 587,
-    secure: parseInt(process.env.EMAIL_PORT, 10) === 465, // true if 465
+    secure: parseInt(process.env.EMAIL_PORT, 10) === 465,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
@@ -21,8 +26,10 @@ async function sendMailToUser({ email, subject, template, data }) {
     debug: true,
   });
 
-  const templatePath = path.join(__dirname, " ", template);
-  console.log("templatePath", templatePath)
+  // ✅ Clean up template path
+  const templatePath = path.join(__dirname, template);
+  console.log("templatePath", templatePath);
+
   const html = await ejs.renderFile(templatePath, data);
 
   const mailOptions = {
@@ -47,4 +54,4 @@ async function sendMailToUser({ email, subject, template, data }) {
   }
 }
 
-export default sendMailToUser
+export default sendMailToUser;
