@@ -27,7 +27,7 @@ async function sendMailToUser({ email, subject, template, data }) {
   });
 
   // ✅ Clean up template path
-  const templatePath = path.join(__dirname, template);
+  const templatePath = path.join(__dirname, "templates", template);
   console.log("templatePath", templatePath);
 
   const html = await ejs.renderFile(templatePath, data);

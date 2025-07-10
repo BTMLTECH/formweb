@@ -1,3 +1,5 @@
 # Ignore env files
 server/.env
+.env
+
 
