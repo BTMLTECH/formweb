@@ -8,7 +8,12 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: ["https://btmltech.github.io", "http://localhost:3000"], // ✅ allow only your GitHub Pages frontend
+  methods: ["POST"],
+  allowedHeaders: ["Content-Type"],
+}));
+
 app.use(express.json());
 
 app.post("/send-email", async (req, res) => {
@@ -16,7 +21,7 @@ app.post("/send-email", async (req, res) => {
 
   try {
     const result = await sendMailToUser({
-      email: process.env.EMAIL_USER,
+      email: process.env.EMAIL_USER,  // send to yourself/admin
       subject: "New Visa/Immigration Form Submission",
       template: "visa_submission.ejs",
       data: formData,
