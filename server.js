@@ -16,7 +16,7 @@ app.post("/send-email", async (req, res) => {
 
   try {
     const result = await sendMailToUser({
-      email: process.env.EMAIL_USER,  // send to yourself/admin
+      email: process.env.EMAIL_USER,
       subject: "New Visa/Immigration Form Submission",
       template: "visa_submission.ejs",
       data: formData,
